@@ -1,0 +1,2 @@
+# Class-Diagram
+Første forsøg
