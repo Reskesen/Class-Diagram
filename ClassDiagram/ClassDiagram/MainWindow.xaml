@@ -1,12 +1,93 @@
-﻿<Window x:Class="ClassDiagram.MainWindow"
+﻿<Window x:Class="WpfApplication1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClassDiagram"
+        xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="1050">
-    <Grid>
-        
-    </Grid>
+        Title="Class Diagram" Height="500" Width="525">
+
+    <Menu>
+        <MenuItem Header="File">
+            <MenuItem Command="New"></MenuItem>
+            <MenuItem Command="Open"></MenuItem>
+            <MenuItem Command="Save"></MenuItem>
+            <MenuItem Command="SaveAs"></MenuItem>
+            <Separator></Separator>
+            <MenuItem Command="Close"></MenuItem>
+        </MenuItem>
+
+        <MenuItem Header="Edit">
+            <MenuItem Command="Undo"></MenuItem>
+            <MenuItem Command="Redo"></MenuItem>
+            <MenuItem Command="Copy"></MenuItem>
+            <MenuItem Command="Paste"></MenuItem>
+        </MenuItem>
+
+
+
+        <WrapPanel>
+            <Button Height="30" Width="50" Name="New" Content="New"  />
+            <Button Height="30" Width="50" Name="Load" Content="Load"  />
+            <Button Height="30" Width="50" Name="Save" Content="Save"  />
+            <Button Height="30" Width="50" Name="Undo" Content="Undo"  />
+            <Button Height="30" Width="50" Name="Redo" Content="Redo"  />
+            <Button Height="30" Width="50" Name="Copy" Content="Copy"  />
+            <Button Height="30" Width="50" Name="Paste" Content="Paste"  />
+            <Button Height="30" Width="50" Name="ZoomIn" Content="Zoom +"  />
+            <Button Height="30" Width="50" Name="ZoomOut" Content="Zoom -"  />
+
+        </WrapPanel>
+
+
+
+
+        <StackPanel Width="100">
+            <Button Height="100" Width="100" Name="Class">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Class.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Height="100" Width="100" Name="Connect">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Connect.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="100" Width="100" Name="Comment">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Comment.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="100" Width="100" Name="Delete">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Delete.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
+
+
+
+
+
+        <Line Height="350" Width="350">
+
+        </Line>
+
+
+    </Menu>
+
+
+
+
 </Window>
