@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClassDiagram
+namespace ClassDiagram.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

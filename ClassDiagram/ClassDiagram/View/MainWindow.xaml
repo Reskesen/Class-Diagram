@@ -1,9 +1,9 @@
-﻿<Window x:Class="WpfApplication1.MainWindow"
+﻿<Window x:Class="ClassDiagram.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:local="clr-namespace:ClassDiagram.View"
         mc:Ignorable="d"
         Title="Class Diagram" Height="500" Width="525">
 
@@ -46,14 +46,14 @@
             <Button Height="100" Width="100" Name="Class">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="Class.png"/>
+                        <Image Source="Images/Class.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
             <Button Height="100" Width="100" Name="Connect">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="Connect.png"/>
+                        <Image Source="Images/Connect.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
@@ -61,7 +61,7 @@
             <Button Height="100" Width="100" Name="Comment">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="Comment.png"/>
+                        <Image Source="Images/Comment.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
@@ -69,7 +69,7 @@
             <Button Height="100" Width="100" Name="Delete">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source="Delete.png"/>
+                        <Image Source="Images/Delete.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>

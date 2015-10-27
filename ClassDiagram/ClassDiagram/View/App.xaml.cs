@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ClassDiagram
+namespace ClassDiagram.View
 {
     /// <summary>
     /// Interaction logic for App.xaml
