@@ -30,5 +30,28 @@
             <TextBlock Grid.Row="1" Text="ClassName" TextAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="Beige"/>
             <TextBlock Grid.Row="3" Text="Choose by gently tuching" TextAlignment="Center" FontWeight="Bold" FontSize="12" Foreground="Beige"/>
         </Grid>
+  
+
+    
+  <<!-- Mangler: - se ShapeUserControl DEMO
+      
+      <i:Interaction.Triggers>
+    <i:EventTrigger EventName="MouseDown">
+        <cmd:EventToCommand Command="{Binding DataContext.MouseDownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+    </i:EventTrigger>
+    <i:EventTrigger EventName="MouseMove">
+        <cmd:EventToCommand Command="{Binding DataContext.MouseMoveShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+    </i:EventTrigger>
+    <i:EventTrigger EventName="MouseUp">
+        <cmd:EventToCommand Command="{Binding DataContext.MouseUpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+    </i:EventTrigger>
+    </i:Interaction.Triggers>
+    </Rectangle>
+ 
+      
+    <TextBlock IsHitTestVisible="False" FontSize="20" Text="{Binding Number}" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
     </Grid>
+
+    --> 
+  </Grid>
 </UserControl>
