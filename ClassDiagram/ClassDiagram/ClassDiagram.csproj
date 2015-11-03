@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\AddClassCommand.cs" />
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
     </Compile>
@@ -117,7 +118,10 @@
     <Resource Include="View\Images\Class.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Command\" />
+    <ProjectReference Include="..\ClassDiagram.Model\ClassDiagram.Model.csproj">
+      <Project>{08ce847d-35f3-4f9b-bfaf-25f3ba8e64ea}</Project>
+      <Name>ClassDiagram.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
