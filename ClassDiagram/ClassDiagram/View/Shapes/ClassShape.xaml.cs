@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ClassDiagram.View.Shapes
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ClassShape.xaml
     /// </summary>
     public partial class ClassShape : UserControl
     {
