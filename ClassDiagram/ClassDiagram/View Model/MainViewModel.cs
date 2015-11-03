@@ -1,6 +1,11 @@
 ﻿using ClassDiagram.Model;
+using ClassDiagram.Command;
+using GalaSoft.MvvmLight;
+//using GalaSoft.MvvmLight.CommandWpf;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using GalaSoft.MvvmLight.Command;
 
 namespace ClassDiagram.View_Model
 {
@@ -19,13 +25,32 @@ namespace ClassDiagram.View_Model
         private Point initialMousePosition;
         private Point initialShapePosition;
 
+        public ObservableCollection<ClassShape> Shapes { get; set; }
+
+        public ICommand AddClassCommand { get; }
+        public ICommand MouseDownShapeCommand { get; }
+        public ICommand MouseMoveShapeCommand { get; }
+        public ICommand MouseUpShapeCommand { get; }
+
         public MainViewModel()
         {
+            Shapes = new ObservableCollection<ClassShape>() {
+                new ClassShape() { X = 30, Y = 40, Width = 100, Height = 60 },
+                new ClassShape() { X = 140, Y = 230, Width = 100, Height = 100 }
+            };
 
+            AddClassCommand = new RelayCommand(AddShape);
+            MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
+            MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
+            MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
         }
 
 
+        private void AddShape()
+        {
+            Shapes.Add(new ClassShape());
 
+        }
 
         private void MouseDownShape(MouseButtonEventArgs e)
         {
@@ -94,8 +119,8 @@ namespace ClassDiagram.View_Model
                 var mousePosition = RelativeMousePosition(e);
 
                 // The Shape is moved back to its original position, so the offset given to the move command works.
-                shape.X = initialShapePosition.X;
-                shape.Y = initialShapePosition.Y;
+                //shape.X = initialShapePosition.X;
+                //shape.Y = initialShapePosition.Y;
 
                 
         //        undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));

@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classdiagram.Command
+namespace ClassDiagram.Command
 {
-    public class AddShapeCommand
+    public class AddClassCommand
     {
         
         private ObservableCollection<ClassShape> shapes;
    
         private ClassShape shape;
 
-        public AddShapeCommand(ObservableCollection<ClassShape> _shapes, ClassShape _shape) 
+        public AddClassCommand(ObservableCollection<ClassShape> _shapes, ClassShape _shape) 
         { 
             shapes = _shapes;
             shape = _shape;

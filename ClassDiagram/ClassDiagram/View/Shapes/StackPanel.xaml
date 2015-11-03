@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ClassDiagram.View.Shapes"
+             xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
     
-    <StackPanel Width="200">
+    <StackPanel Width="100">
 
         <StackPanel.Background>
             <LinearGradientBrush StartPoint="0,1">
@@ -22,7 +22,8 @@
 
 
 
-        <Button Height="100" Width="100" Name="Class" Command="{Binding addClass}" Margin="5">
+        <Button Height="100" Width="100" Name="Class" Command="{Binding AddClassCommand}" Margin="5">
+            <!--<Shapes:ClassShape/>-->
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/ClassDiagram;component/View/Images/Class.png"/>
@@ -30,6 +31,7 @@
             </Button.Template>
         </Button>
         <Button Height="100" Width="100" Name="Connect" Command="{Binding addLine}" Margin="5">
+            <!--<Shapes:Line/>-->
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/ClassDiagram;component/View/Images/Connect.png"/>

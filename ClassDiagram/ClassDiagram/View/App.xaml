@@ -1,9 +1,16 @@
 ﻿<Application x:Class="ClassDiagram.View.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ClassDiagram.View"
-             StartupUri="View\MainWindow.xaml">
+             xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
+             xmlns:Model="clr-namespace:ClassDiagram.Model;assembly=ClassDiagram.Model"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <DataTemplate DataType="{x:Type Model:ClassShape}">
+            <Canvas>
+                <Shapes:ClassShape/>
+            </Canvas>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>
