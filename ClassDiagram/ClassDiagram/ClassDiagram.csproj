@@ -59,6 +59,9 @@
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Shapes\Line.xaml.cs">
+      <DependentUpon>Line.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Shapes\ClassShape.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Shapes\Line.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
