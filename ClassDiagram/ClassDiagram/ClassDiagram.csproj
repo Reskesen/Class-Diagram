@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="View\Shapes\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+      <DependentUpon>ClassShape</DependentUpon>
     </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,10 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Shapes\UserControl1.xaml">
+    <None Include="View\Shapes\ClassShape">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="View\Page1.xaml.cs">
