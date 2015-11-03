@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassShape.cs" />
     <Compile Include="Command\AddClassCommand.cs" />
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
