@@ -31,8 +31,8 @@
 
         <Canvas Height="350" Width="350" Background="AliceBlue">
 
-            <ItemsControl ItemsSource="{Binding Shapes}"/>
             <ItemsControl ItemsSource="{Binding Lines}"/>
+            <ItemsControl ItemsSource="{Binding Shapes}"/>
             
         </Canvas>
 
