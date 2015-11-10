@@ -12,5 +12,11 @@
             </Canvas>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type Model:Line}">
+            <Canvas>
+                <Shapes:Line/>
+            </Canvas>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

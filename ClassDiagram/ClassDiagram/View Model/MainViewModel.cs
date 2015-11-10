@@ -19,15 +19,17 @@ namespace ClassDiagram.View_Model
 {
     public class MainViewModel
     {
-        private Boolean isAddingLine;
+        private bool isAddingLine;
         private ClassShape addingLineFrom;
 
         private Point initialMousePosition;
         private Point initialShapePosition;
 
         public ObservableCollection<ClassShape> Shapes { get; set; }
+        public ObservableCollection<Line> Lines { get; set; }
 
         public ICommand AddClassCommand { get; }
+        public ICommand AddLineCommand { get; }
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
@@ -39,7 +41,12 @@ namespace ClassDiagram.View_Model
                 new ClassShape() { X = 140, Y = 230, Width = 100, Height = 100 }
             };
 
+            Lines = new ObservableCollection<Line>() {
+                new Line() { From = Shapes.ElementAt(0), To = Shapes.ElementAt(1) }
+            };
+
             AddClassCommand = new RelayCommand(AddShape);
+            AddLineCommand = new RelayCommand(AddLine);
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
@@ -50,6 +57,14 @@ namespace ClassDiagram.View_Model
         {
             Shapes.Add(new ClassShape());
 
+        }
+
+        private void AddLine()
+        {
+            isAddingLine = true;
+            //Lines.Add(new Line());
+
+            //RaisePropertyChanged(() => ModeOpacity);
         }
 
         private void MouseDownShape(MouseButtonEventArgs e)
@@ -88,27 +103,27 @@ namespace ClassDiagram.View_Model
             //addingline
             if (isAddingLine)
             {
-                ////retrieves selected target
-                //var shape = TargetShape(e);
+                //retrieves selected target
+                var shape = TargetShape(e);
 
-                ////if no shape has been selected
-                //if (addingLineFrom == null)
-                //{
-                //    addingLineFrom = shape;
-                //    addingLineFrom.IsSelected = true;
-                //}
-                ////  if the two shapes aren't the same
-                //else if (addingLineFrom.Number != shape.Number)
-                //{
-                //    undoRedoController.AddAndExecute(new AddLineCommand(Lines, new Line() { From = addingLineFrom, To = shape }));
+                //if no shape has been selected
+                if (addingLineFrom == null)
+                {
+                    addingLineFrom = shape;
+                    addingLineFrom.IsSelected = true;
+                }
+                //  if the two shapes aren't the same
+                else if (addingLineFrom.Number != shape.Number)
+                {
+                    //undoRedoController.AddAndExecute(new addLineCommand(Lines, new line() { from = addingLineFrom, to = shape }));
 
-                //    addingLineFrom.IsSelected = false;
+                    addingLineFrom.IsSelected = false;
 
-                //    isAddingLine = false;
-                //    addingLineFrom = null;
+                    isAddingLine = false;
+                    addingLineFrom = null;
 
-                //    RaisePropertyChanged(() => ModeOpacity);
-                //}
+                    //raisepropertychanged(() => modeopacity);
+                }
             }
             //moving a Shape.
             else
