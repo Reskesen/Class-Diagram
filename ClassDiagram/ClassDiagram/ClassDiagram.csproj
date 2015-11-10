@@ -80,13 +80,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\AddClassCommand.cs" />
-<<<<<<< HEAD
-    <Compile Include="View\MainWindow2.0.xaml.cs">
-      <DependentUpon>MainWindow2.0.xaml</DependentUpon>
-    </Compile>
-=======
     <Compile Include="Command\AddLineCommand.cs" />
->>>>>>> origin/master
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
     </Compile>
@@ -115,10 +109,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\MainWindow2.0.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

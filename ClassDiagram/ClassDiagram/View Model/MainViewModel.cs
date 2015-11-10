@@ -55,16 +55,14 @@ namespace ClassDiagram.View_Model
 
         private void AddShape()
         {
-            System.Diagnostics.Debug.WriteLine("added a class");
             Shapes.Add(new ClassShape());
 
         }
 
         private void AddLine()
         {
-            System.Diagnostics.Debug.WriteLine("added a line");
             isAddingLine = true;
-            
+            //Lines.Add(new Line());
 
             //RaisePropertyChanged(() => ModeOpacity);
         }
@@ -105,21 +103,18 @@ namespace ClassDiagram.View_Model
             //addingline
             if (isAddingLine)
             {
-                System.Diagnostics.Debug.WriteLine("is adding line");
                 //retrieves selected target
                 var shape = TargetShape(e);
 
                 //if no shape has been selected
                 if (addingLineFrom == null)
                 {
-                    System.Diagnostics.Debug.WriteLine("no class selected");
                     addingLineFrom = shape;
                     addingLineFrom.IsSelected = true;
                 }
                 //  if the two shapes aren't the same
                 else if (addingLineFrom.Number != shape.Number)
                 {
-                    System.Diagnostics.Debug.WriteLine("shapes are not the same");
                     //undoRedoController.AddAndExecute(new addLineCommand(Lines, new line() { from = addingLineFrom, to = shape }));
                     Lines.Add(new Line() { from = addingLineFrom, to = shape });
 
