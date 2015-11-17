@@ -8,34 +8,33 @@
         xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
         mc:Ignorable="d"
         Title="Class Diagram" Height="500" Width="525">
-
+    
     <Window.DataContext>
         <ViewModel:MainViewModel />
     </Window.DataContext>
     
-    <Menu>
-      
-        <Shapes:Menu/>
+    <DockPanel>
 
-        <WrapPanel>
-         
+        <Menu DockPanel.Dock="Top">
+            <Shapes:Menu />
+        </Menu>
+
+        <WrapPanel DockPanel.Dock="Top">
             <Shapes:TopPanel/>
-
         </WrapPanel>
 
-        <StackPanel Width="100">
-            
-            <Shapes:StackPanel/>
-
+        <StackPanel Width="100" DockPanel.Dock="Left">
+            <Shapes:StackPanel />
         </StackPanel>
 
         <Canvas Height="350" Width="350" Background="AliceBlue">
-
+            <Border
+                BorderBrush="Black" BorderThickness="2">
+                <Rectangle Fill="Blue" Opacity=".2"/>
+            </Border>
             <ItemsControl ItemsSource="{Binding Lines}"/>
             <ItemsControl ItemsSource="{Binding Shapes}"/>
-            
         </Canvas>
 
-    </Menu>
-
+</DockPanel>
 </Window>
