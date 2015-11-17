@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClassDiagram.Command
 {
-    public class AddClassCommand
+    public class AddClassCommand : IUndoRedoCommand
     {
         
         private ObservableCollection<ClassShape> shapes;

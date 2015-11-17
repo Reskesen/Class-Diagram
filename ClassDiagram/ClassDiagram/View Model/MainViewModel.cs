@@ -19,6 +19,8 @@ namespace ClassDiagram.View_Model
 {
     public class MainViewModel
     {
+        private UndoRedoController undoRedoController = UndoRedoController.Instance;
+
         private bool isAddingLine;
         private ClassShape addingLineFrom;
 
@@ -27,6 +29,9 @@ namespace ClassDiagram.View_Model
 
         public ObservableCollection<ClassShape> Shapes { get; set; }
         public ObservableCollection<Line> Lines { get; set; }
+
+        public ICommand UndoCommand { get; }
+        public ICommand RedoCommand { get; }
 
         public ICommand AddClassCommand { get; }
         public ICommand AddLineCommand { get; }
@@ -45,6 +50,10 @@ namespace ClassDiagram.View_Model
                 new Line() { From = Shapes.ElementAt(0), To = Shapes.ElementAt(1) }
             };
 
+            // , undoRedoController.CanUndo     , undoRedoController.CanRedo
+            UndoCommand = new RelayCommand(undoRedoController.Undo);
+            RedoCommand = new RelayCommand(undoRedoController.Redo);
+
             AddClassCommand = new RelayCommand(AddShape);
             AddLineCommand = new RelayCommand(AddLine);
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
@@ -55,7 +64,8 @@ namespace ClassDiagram.View_Model
 
         private void AddShape()
         {
-            Shapes.Add(new ClassShape());
+            //Shapes.Add(new ClassShape());
+            undoRedoController.AddAndExecute(new AddClassCommand(Shapes, new ClassShape()));
 
         }
 
@@ -115,8 +125,8 @@ namespace ClassDiagram.View_Model
                 //  if the two shapes aren't the same
                 else if (addingLineFrom.Number != shape.Number)
                 {
-                    //undoRedoController.AddAndExecute(new addLineCommand(Lines, new line() { from = addingLineFrom, to = shape }));
-                    Lines.Add(new Line() { from = addingLineFrom, to = shape });
+                    //Lines.Add(new Line() { from = addingLineFrom, to = shape });
+                    undoRedoController.AddAndExecute(new AddLineCommand(Lines, new Line() { From = addingLineFrom, To = shape }));
 
                     addingLineFrom.IsSelected = false;
 
@@ -135,11 +145,10 @@ namespace ClassDiagram.View_Model
                 var mousePosition = RelativeMousePosition(e);
 
                 // The Shape is moved back to its original position, so the offset given to the move command works.
-                //shape.X = initialShapePosition.X;
-                //shape.Y = initialShapePosition.Y;
+                shape.X = initialShapePosition.X;
+                shape.Y = initialShapePosition.Y;
 
-                
-        //        undoRedoController.AddAndExecute(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+                undoRedoController.AddAndExecute(new MoveClassCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
                 // The mouse is released
                 e.MouseDevice.Target.ReleaseMouseCapture();

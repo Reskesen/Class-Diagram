@@ -81,6 +81,9 @@
     </ApplicationDefinition>
     <Compile Include="Command\AddClassCommand.cs" />
     <Compile Include="Command\AddLineCommand.cs" />
+    <Compile Include="Command\IUndoRedoCommand.cs" />
+    <Compile Include="Command\MoveClassCommand.cs" />
+    <Compile Include="Command\UndoRedoController.cs" />
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
     </Compile>

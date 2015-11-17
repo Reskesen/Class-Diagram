@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClassDiagram.Command
 {
-    public class AddLineCommand
+    public class AddLineCommand : IUndoRedoCommand
     {
 
         private ObservableCollection<Line> lines;
