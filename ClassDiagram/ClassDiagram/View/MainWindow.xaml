@@ -27,7 +27,7 @@
             <Shapes:StackPanel />
         </StackPanel>
 
-        <Canvas Height="350" Width="350" Background="AliceBlue">
+        <Canvas Height="350" Width="350" Background="White">
             <Border
                 BorderBrush="Black" BorderThickness="2">
                 <Rectangle Fill="Blue" Opacity=".2"/>

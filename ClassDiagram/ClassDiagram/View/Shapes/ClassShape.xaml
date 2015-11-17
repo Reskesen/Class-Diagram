@@ -12,7 +12,7 @@
 
     <Grid>
         <Rectangle Fill="{Binding SelectedColor}" Stroke="BlanchedAlmond" StrokeThickness="4" />
-        <Canvas IsHitTestVisible="False" Background="White">
+        <Canvas IsHitTestVisible="False" Background="LightBlue">
        
             <Line X1 = '0' X2="100"
               Y1="50"
