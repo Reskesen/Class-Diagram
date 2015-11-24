@@ -22,6 +22,7 @@ namespace ClassDiagram.View_Model
         public UndoRedoController undoRedoController = UndoRedoController.Instance;
 
         public bool isAddingLine;
+        public bool isDeleting;
         public static Type addingLineType;
         public ShapeViewModel addingLineFrom;
 
@@ -33,13 +34,21 @@ namespace ClassDiagram.View_Model
 
         public ICommand AddClassCommand { get; }
         public ICommand AddLineCommand { get; }
-       
+        public ICommand RemoveClassCommand { get; }
+        public ICommand RemoveLinesCommand { get; }
+        public ICommand DeleteCommand { get; }
+
 
         public BaseViewModel()
         {
             // , undoRedoController.CanUndo     , undoRedoController.CanRedo
             UndoCommand = new RelayCommand(undoRedoController.Undo);
             RedoCommand = new RelayCommand(undoRedoController.Redo);
+            RemoveClassCommand = new RelayCommand<ShapeViewModel>(RemoveShape);
+            RemoveLinesCommand = new RelayCommand<IList>(RemoveLines, CanRemoveLines);
+
+            DeleteCommand = new RelayCommand(Delete);
+
 
             AddClassCommand = new RelayCommand(AddShape);
             AddLineCommand = new RelayCommand(AddLine);
@@ -60,6 +69,26 @@ namespace ClassDiagram.View_Model
             //Lines.Add(new Line());
 
             //RaisePropertyChanged(() => ModeOpacity);
+        }
+
+        public bool CanRemoveShape(IList _shapes) => _shapes.Count == 1;
+
+        public void RemoveShape(ShapeViewModel _shape)
+        {
+            undoRedoController.AddAndExecute(new RemoveClassCommand(Shapes, Lines, _shape));
+        }
+
+        public bool CanRemoveLines(IList _edges) => _edges.Count >= 1;
+
+        public void RemoveLines(IList _lines)
+        {
+            undoRedoController.AddAndExecute(new RemoveLineCommand(Lines, _lines.Cast<LineViewModel>().ToList()));
+        }
+
+        public void Delete()
+        {
+            isDeleting = true;
+            Console.WriteLine("is now deleting!");
         }
 
     }

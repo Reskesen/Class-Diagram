@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
+             xmlns:ViewModel="clr-namespace:ClassDiagram.View_Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="200">
     
@@ -47,7 +48,7 @@
             </Button.Template>
         </Button>
 
-        <Button Height="100" Width="100" Name="Delete" Command="{Binding deleteItem}" Margin="5">
+        <Button Height="100" Width="100" Name="Delete" Command="{Binding DeleteCommand}" Margin="5">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/ClassDiagram;component/View/Images/Delete.png"/>

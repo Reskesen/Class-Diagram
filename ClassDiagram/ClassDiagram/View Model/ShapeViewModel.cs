@@ -15,9 +15,11 @@ namespace ClassDiagram.View_Model
     {
         public ClassShape Shape { get; set; }
 
+        public ICommand RemoveCommand { get; }
+
         private static int counter = 0;
 
-        public int Number { get; }
+        public int Number { get { return Shape.Number; } set { Shape.Number = value; RaisePropertyChanged(); } }
 
         private double x = 200;
 
@@ -51,13 +53,18 @@ namespace ClassDiagram.View_Model
         {
             Shape = _shape;
 
-          //  RemoveCommand = new RelayCommand(Remove);
+            RemoveCommand = new RelayCommand(Remove);
         }
-        /*
+
+        public int getNumber()
+        {
+            return Number;
+        }
+   
         private void Remove()
         {
-            undoRedoController.AddAndExecute(new RemoveShapesCommand(Shapes, Lines, new List<ShapeViewModel>() { this }));
+            undoRedoController.AddAndExecute(new RemoveClassCommand(Shapes, Lines, this));
         }
-        */
+        
     }
 }

@@ -50,10 +50,18 @@ namespace ClassDiagram.View_Model
         }
         
         private void MouseDownShape(MouseButtonEventArgs e)
-        {
-            //if not adding a line
-            if (!isAddingLine)
+        {  
+
+            if (isDeleting)
             {
+                var shape = TargetShape(e);
+                
+                RemoveShape(shape);
+                isDeleting = false;
+            }
+            //if not adding a line
+            else if (!isAddingLine)
+            {   
                 var shape = TargetShape(e);
                
                 var mousePosition = RelativeMousePosition(e);
@@ -111,8 +119,8 @@ namespace ClassDiagram.View_Model
                     addingLineFrom = null;
 
                     //raisepropertychanged(() => modeopacity);
-                }
-            }
+                } 
+            } 
             //moving a Shape.
             else
             {

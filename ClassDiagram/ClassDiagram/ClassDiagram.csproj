@@ -83,6 +83,8 @@
     <Compile Include="Command\AddLineCommand.cs" />
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\MoveClassCommand.cs" />
+    <Compile Include="Command\RemoveClassCommand.cs" />
+    <Compile Include="Command\RemoveLineCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
     <Compile Include="View Model\BaseViewModel.cs" />
     <Compile Include="View Model\LineViewModel.cs" />
