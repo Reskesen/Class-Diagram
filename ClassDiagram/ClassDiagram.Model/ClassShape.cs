@@ -10,6 +10,7 @@ namespace ClassDiagram.Model
 
     public class ClassShape : NotifyBase
     {
+        /*
         private static int counter = 0;
 
         public int Number { get; }
@@ -51,6 +52,15 @@ namespace ClassDiagram.Model
         private bool isSelected;
         public bool IsSelected { get { return isSelected; } set { isSelected = value; NotifyPropertyChanged(); NotifyPropertyChanged(() => SelectedColor); } }
         public Brush SelectedColor => IsSelected ? Brushes.Red : Brushes.Yellow;
+        */
+        private static int counter = 0;
+        public int Number { get; set; } = ++counter;
+
+        public double X { get; set; } = 200;
+        public double Y { get; set; } = 200;
+        public double Width { get; set; } = 100;
+        public double Height { get; set; } = 100;
+
         public ClassShape()
         {
             Number = ++counter;

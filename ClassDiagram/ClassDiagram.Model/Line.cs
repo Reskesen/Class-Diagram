@@ -11,10 +11,10 @@ namespace ClassDiagram.Model
     public class Line : NotifyBase
     {
 
-        public ClassShape from;
-        public ClassShape From { get { return from; } set { from = value; NotifyPropertyChanged(); } }
+        public int FromNumber { get; set; }
+        public int ToNumber { get; set; }
+        public string Label { get; set; }
 
-        public ClassShape to;
-        public ClassShape To { get { return to; } set { to = value; NotifyPropertyChanged(); } }
+
     }
 }
