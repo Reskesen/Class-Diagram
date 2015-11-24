@@ -17,66 +17,38 @@ using GalaSoft.MvvmLight.Command;
 
 namespace ClassDiagram.View_Model
 {
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
-        private UndoRedoController undoRedoController = UndoRedoController.Instance;
-
-        private bool isAddingLine;
-        private ClassShape addingLineFrom;
+       
 
         private Point initialMousePosition;
         private Point initialShapePosition;
 
-        public ObservableCollection<ClassShape> Shapes { get; set; }
-        public ObservableCollection<Line> Lines { get; set; }
-
-        public ICommand UndoCommand { get; }
-        public ICommand RedoCommand { get; }
-
-        public ICommand AddClassCommand { get; }
-        public ICommand AddLineCommand { get; }
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
-        public MainViewModel()
+        
+
+        public MainViewModel() : base()
+
         {
-            Shapes = new ObservableCollection<ClassShape>() {
-                new ClassShape() { X = 30, Y = 40, Width = 100, Height = 60 },
-                new ClassShape() { X = 140, Y = 230, Width = 100, Height = 100 }
-            };
-
-            Lines = new ObservableCollection<Line>() {
-                new Line() { From = Shapes.ElementAt(0), To = Shapes.ElementAt(1) }
-            };
-
-            // , undoRedoController.CanUndo     , undoRedoController.CanRedo
-            UndoCommand = new RelayCommand(undoRedoController.Undo);
-            RedoCommand = new RelayCommand(undoRedoController.Redo);
-
-            AddClassCommand = new RelayCommand(AddShape);
-            AddLineCommand = new RelayCommand(AddLine);
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
+
+            Shapes = new ObservableCollection<ShapeViewModel>() {
+                new ShapeViewModel(new ClassShape() { X = 30, Y = 40, Width = 100, Height = 60 }),
+                new ShapeViewModel(new ClassShape() { X = 140, Y = 230, Width = 100, Height = 100 })
+            };
+
+            Lines = new ObservableCollection<LineViewModel>() {
+                new LineViewModel(new Line()) { From = Shapes.ElementAt(0), To = Shapes.ElementAt(1) }
+            };
+
+            
         }
-
-
-        private void AddShape()
-        {
-            //Shapes.Add(new ClassShape());
-            undoRedoController.AddAndExecute(new AddClassCommand(Shapes, new ClassShape()));
-
-        }
-
-        private void AddLine()
-        {
-            isAddingLine = true;
-            //Lines.Add(new Line());
-
-            //RaisePropertyChanged(() => ModeOpacity);
-        }
-
+        
         private void MouseDownShape(MouseButtonEventArgs e)
         {
             //if not adding a line
@@ -123,14 +95,19 @@ namespace ClassDiagram.View_Model
                     addingLineFrom.IsSelected = true;
                 }
                 //  if the two shapes aren't the same
-                else if (addingLineFrom.Number != shape.Number)
+                else if (addingLineFrom != shape)
                 {
                     //Lines.Add(new Line() { from = addingLineFrom, to = shape });
-                    undoRedoController.AddAndExecute(new AddLineCommand(Lines, new Line() { From = addingLineFrom, To = shape }));
+                    LineViewModel lineToAdd = new LineViewModel(
+                        addingLineType == typeof(Line) ? new Line() : new Line()
+                    )
+                    { From = addingLineFrom, To = shape };
+                    undoRedoController.AddAndExecute(new AddLineCommand(Lines, lineToAdd));
 
                     addingLineFrom.IsSelected = false;
 
                     isAddingLine = false;
+                    addingLineType = null;
                     addingLineFrom = null;
 
                     //raisepropertychanged(() => modeopacity);
@@ -155,11 +132,11 @@ namespace ClassDiagram.View_Model
             }
         }
 
-        private ClassShape TargetShape(MouseEventArgs e)
+        private ShapeViewModel TargetShape(MouseEventArgs e)
         {
             var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
 
-            return (ClassShape)shapeVisualElement.DataContext;
+            return (ShapeViewModel)shapeVisualElement.DataContext;
         }
 
         private Point RelativeMousePosition(MouseEventArgs e)

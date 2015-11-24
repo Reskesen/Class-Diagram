@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
              xmlns:Model="clr-namespace:ClassDiagram.Model;assembly=ClassDiagram.Model"
+             xmlns:ViewModel="clr-namespace:ClassDiagram.View_Model"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <DataTemplate DataType="{x:Type Model:ClassShape}">
+        <DataTemplate DataType="{x:Type ViewModel:ShapeViewModel}">
             <Canvas>
                 <Shapes:ClassShape/>
             </Canvas>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type Model:Line}">
+        <DataTemplate DataType="{x:Type ViewModel:LineViewModel}">
             <Canvas>
                 <Shapes:Line/>
             </Canvas>

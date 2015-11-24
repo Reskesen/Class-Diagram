@@ -84,6 +84,9 @@
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\MoveClassCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
+    <Compile Include="View Model\BaseViewModel.cs" />
+    <Compile Include="View Model\LineViewModel.cs" />
+    <Compile Include="View Model\ShapeViewModel.cs" />
     <Compile Include="View\Shapes\ClassShape.xaml.cs">
       <DependentUpon>ClassShape.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,9 @@
       <Project>{08ce847d-35f3-4f9b-bfaf-25f3ba8e64ea}</Project>
       <Name>ClassDiagram.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

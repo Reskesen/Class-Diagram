@@ -1,4 +1,5 @@
 ﻿using ClassDiagram.Model;
+using ClassDiagram.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,11 +12,11 @@ namespace ClassDiagram.Command
     public class AddLineCommand : IUndoRedoCommand
     {
 
-        private ObservableCollection<Line> lines;
+        private ObservableCollection<LineViewModel> lines;
 
-        private Line line;
+        private LineViewModel line;
 
-        public AddLineCommand(ObservableCollection<Line> _lines, Line _line)
+        public AddLineCommand(ObservableCollection<LineViewModel> _lines, LineViewModel _line)
         {
             lines = _lines;
             line = _line;

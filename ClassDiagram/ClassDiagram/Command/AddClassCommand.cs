@@ -1,4 +1,5 @@
 ﻿using ClassDiagram.Model;
+using ClassDiagram.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,11 +12,11 @@ namespace ClassDiagram.Command
     public class AddClassCommand : IUndoRedoCommand
     {
         
-        private ObservableCollection<ClassShape> shapes;
+        private ObservableCollection<ShapeViewModel> shapes;
    
-        private ClassShape shape;
+        private ShapeViewModel shape;
 
-        public AddClassCommand(ObservableCollection<ClassShape> _shapes, ClassShape _shape) 
+        public AddClassCommand(ObservableCollection<ShapeViewModel> _shapes, ShapeViewModel _shape)
         { 
             shapes = _shapes;
             shape = _shape;
