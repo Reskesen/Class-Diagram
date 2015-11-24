@@ -8,6 +8,9 @@
              xmlns:local="clr-namespace:ClassDiagram.View.Shapes"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-    
-    <Line Stroke="Navy" X1="{Binding From.CanvasCenterX}" Y1="{Binding From.CanvasCenterY}" X2="{Binding To.CanvasCenterX}" Y2="{Binding To.CanvasCenterY}" StrokeThickness="5"/>
+
+    <Grid>
+        <Line Stroke="Navy" X1="{Binding From.CanvasCenterX}" Y1="{Binding From.CanvasCenterY}" X2="{Binding To.CanvasCenterX}" Y2="{Binding To.CanvasCenterY}" StrokeThickness="5" />
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Label}"/>
+   </Grid>
 </UserControl>

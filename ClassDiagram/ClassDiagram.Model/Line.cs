@@ -15,6 +15,6 @@ namespace ClassDiagram.Model
         public int ToNumber { get; set; }
         public string Label { get; set; }
 
-
+      
     }
 }

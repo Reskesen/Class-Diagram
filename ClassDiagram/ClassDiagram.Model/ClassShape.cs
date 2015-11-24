@@ -58,8 +58,9 @@ namespace ClassDiagram.Model
 
         public double X { get; set; } = 200;
         public double Y { get; set; } = 200;
-        public double Width { get; set; } = 100;
-        public double Height { get; set; } = 100;
+        public double Width { get; set; } = 200;
+        public double Height { get; set; } = 200;
+        public List<string> Data { get; set; }
 
         public ClassShape()
         {

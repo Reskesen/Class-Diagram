@@ -14,7 +14,7 @@
         <Rectangle Fill="{Binding SelectedColor}" Stroke="BlanchedAlmond" StrokeThickness="4" />
         <Canvas IsHitTestVisible="False" Background="LightBlue">
        
-            <Line X1 = '0' X2="100"
+            <Line X1 = '0' X2="200"
               Y1="50"
               Y2="50"
               Stroke="Gray"
@@ -33,7 +33,8 @@
             <TextBlock Grid.Row="1" Text="ClassName" TextAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="Black"/>
             <TextBlock Grid.Row="3" Text="Choose by gently tuching" TextAlignment="Center" FontWeight="Bold" FontSize="12" Foreground="Black"/>
         </Grid>
-
+        <TextBlock IsHitTestVisible="False" FontSize="20" Text="{Binding Number}" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" Margin="0, 4, 0, 0"/>
+        <Rectangle Opacity="{Binding ModeOpacity}" Stroke="Transparent" StrokeThickness="150" Fill="{Binding BackgroundColor}" RenderTransformOrigin="0.595,0.545">
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseDown">
                 <cmd:EventToCommand Command="{Binding DataContext.MouseDownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
@@ -45,6 +46,31 @@
                 <cmd:EventToCommand Command="{Binding DataContext.MouseUpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
             </i:EventTrigger>
         </i:Interaction.Triggers>
+        
+        </Rectangle>
+        <ListBox ItemsSource="{Binding Data}" Margin="10,75,10,10" Opacity="{Binding DataContext.ModeOpacity, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.382"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.417"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <UniformGrid Columns="1">
+                        <TextBox Text="{Binding .}"/>
+                    </UniformGrid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
 
 
     </Grid>

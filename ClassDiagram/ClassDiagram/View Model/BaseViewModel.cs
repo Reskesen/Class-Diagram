@@ -59,7 +59,8 @@ namespace ClassDiagram.View_Model
         private void AddShape()
         {
             //Shapes.Add(new ClassShape());
-            undoRedoController.AddAndExecute(new AddClassCommand(Shapes, new ShapeViewModel(new ClassShape())));
+            undoRedoController.AddAndExecute(new AddClassCommand(Shapes, new ShapeViewModel(new ClassShape() { Data = new List<string> { "text1", "text2", "text3", "text4", "text5" } })));
+
 
         }
 

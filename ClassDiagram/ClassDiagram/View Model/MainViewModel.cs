@@ -38,8 +38,9 @@ namespace ClassDiagram.View_Model
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
             Shapes = new ObservableCollection<ShapeViewModel>() {
-                new ShapeViewModel(new ClassShape() { X = 30, Y = 40, Width = 100, Height = 60 }),
-                new ShapeViewModel(new ClassShape() { X = 140, Y = 230, Width = 100, Height = 100 })
+               new ShapeViewModel(new ClassShape() { X = 30, Y = 40, Width = 100, Height = 60, Data = new List<string> { "text1", "text2", "text3", "text4", "text5" } }),
+               new ShapeViewModel(new ClassShape() { X = 140, Y = 230, Width = 300, Height = 300, Data = new List<string> { "text1", "text2", "text3", "text4", "text5" }})
+
             };
 
             Lines = new ObservableCollection<LineViewModel>() {

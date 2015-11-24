@@ -29,11 +29,11 @@ namespace ClassDiagram.View_Model
 
         public double Y { get { return y; } set { y = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterY); } }
 
-        private double width = 100;
+        private double width = 200;
 
         public double Width { get { return width; } set { width = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterX); RaisePropertyChanged(() => CenterX); } }
 
-        private double height = 100;
+        private double height = 200;
 
         public double Height { get { return height; } set { height = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterY); RaisePropertyChanged(() => CenterY); } }
 
@@ -44,6 +44,8 @@ namespace ClassDiagram.View_Model
         public double CenterX => Width / 2;
 
         public double CenterY => Height / 2;
+
+        public List<string> Data { get { return Shape.Data; } set { Shape.Data = value; } }
 
         private bool isSelected;
         public bool IsSelected { get { return isSelected; } set { isSelected = value; RaisePropertyChanged(); RaisePropertyChanged(() => SelectedColor); } }
