@@ -7,12 +7,25 @@
         xmlns:ViewModel="clr-namespace:ClassDiagram.View_Model"
         xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
         mc:Ignorable="d"
-        Title="Class Diagram" Height="500" Width="525">
-    
+        Title="Class Diagram" Height="700" Width="800">
+
     <Window.DataContext>
         <ViewModel:MainViewModel />
     </Window.DataContext>
-    
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding UndoCommand}"
+        Gesture="CTRL+Z" />
+        <KeyBinding Command="{Binding RedoCommand}"
+        Gesture="CTRL+Y" />
+        <KeyBinding Command="{Binding AddClassCommand}"
+        Gesture="CTRL+SHIFT+C" />
+        <KeyBinding Command="{Binding AddLineCommand}"
+        Gesture="CTRL+SHIFT+L" />
+        <KeyBinding Command="{Binding DeleteCommand}"
+        Gesture="CTRL+D"/>
+    </Window.InputBindings>
+
     <DockPanel>
 
         <Menu DockPanel.Dock="Top">

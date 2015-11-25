@@ -21,11 +21,11 @@ namespace ClassDiagram.View_Model
 
         public int Number { get { return Shape.Number; } set { Shape.Number = value; RaisePropertyChanged(); } }
 
-        private double x = 200;
+        private double x = 100;
 
         public double X { get { return x; } set { x = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterX); } }
 
-        private double y = 200;
+        private double y = 100;
 
         public double Y { get { return y; } set { y = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterY); } }
 

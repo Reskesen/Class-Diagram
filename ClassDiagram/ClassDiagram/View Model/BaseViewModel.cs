@@ -89,7 +89,6 @@ namespace ClassDiagram.View_Model
         public void Delete()
         {
             isDeleting = true;
-            Console.WriteLine("is now deleting!");
         }
 
     }
