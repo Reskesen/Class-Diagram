@@ -42,7 +42,7 @@
 
         <Canvas Height="350" Width="350" Background="White">
             <Border
-                BorderBrush="Black" BorderThickness="2">
+                BorderBrush="White" BorderThickness="2">
                 <Rectangle Fill="Blue" Opacity=".2"/>
             </Border>
             <ItemsControl ItemsSource="{Binding Lines}"/>

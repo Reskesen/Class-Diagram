@@ -15,8 +15,10 @@
             <Button Grid.Column ="3" Height="30" Width="50" Name="Save" Content="Save" Margin="1" Background="Azure" Command="{Binding Save}"/>
             <Button Grid.Column ="4" Height="30" Width="50" Name="Undo" Content="Undo" Margin="1"  Background="Red" Command="{Binding UndoCommand}"/>
             <Button Grid.Column ="5" Height="30" Width="50" Name="Redo" Content="Redo" Margin="1"  Background="Green" Command="{Binding RedoCommand}"/>
-            <Button Grid.Column ="6" Height="30" Width="50" Name="Copy" Content="Copy" Margin="1"  Background="Orange" Command="{Binding Copy}"/>
+            <Button Grid.Column ="6" Height="30" Width="50" Name="Copy" Content="Copy" Margin="1"  Background="Orange" Command="{Binding Undo}"/>
+                                                                                                                    <!--Command="ApplicationCommands.Copy"-->
             <Button Grid.Column ="7" Height="30" Width="50" Name="Paste" Content="Paste" Margin="1" Background="OrangeRed" Command="{Binding Paste}"/>
+                                                                                                                        <!--Command="ApplicationCommands.Paste"-->
             <Button Grid.Column ="8" Height="30" Width="50" Name="ZoomIn" Content="Zoom +" Margin="1" Background="DarkCyan" Command="{Binding zoomIn}"/>
             <Button Grid.Column ="9" Height="30" Width="50" Name="ZoomOut" Content="Zoom -" Margin="1" Background="Fuchsia" Command="{Binding zoomOut}"/>
 

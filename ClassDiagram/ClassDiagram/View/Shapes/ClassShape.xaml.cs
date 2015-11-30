@@ -24,5 +24,10 @@ namespace ClassDiagram.View.Shapes
         {
             InitializeComponent();
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }

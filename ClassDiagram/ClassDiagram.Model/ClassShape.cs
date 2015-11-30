@@ -64,7 +64,7 @@ namespace ClassDiagram.Model
 
         public ClassShape()
         {
-            Number = ++counter;
+            //Number = ++counter;
         }
         public override string ToString() => Number.ToString();
     }

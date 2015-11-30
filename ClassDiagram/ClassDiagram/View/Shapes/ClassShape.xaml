@@ -74,4 +74,10 @@
 
 
     </Grid>
+<!--
+    <UserControl.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Copy"
+                        Executed="Copy_Executed"/>
+    </UserControl.CommandBindings>
+-->
 </UserControl>

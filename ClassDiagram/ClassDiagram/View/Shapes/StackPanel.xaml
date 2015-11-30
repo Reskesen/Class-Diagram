@@ -6,41 +6,48 @@
              xmlns:Shapes="clr-namespace:ClassDiagram.View.Shapes"
              xmlns:ViewModel="clr-namespace:ClassDiagram.View_Model"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="200">
+             d:DesignWidth="200">
     
-    <StackPanel Width="100">
+    <StackPanel Width="100" >
 
         <StackPanel.Background>
             <LinearGradientBrush StartPoint="0,1">
                 <GradientStop Color="Black" Offset="0.0" />
-                <GradientStop Color="Green" Offset="0.10" />
-                <GradientStop Color="White" Offset="0.25" />
-                <GradientStop Color="White" Offset="0.750" />
-                <GradientStop Color="Green" Offset="0.90" />
+                <GradientStop Color="DarkGray" Offset="0.10" />
+                <GradientStop Color="LightGray" Offset="0.25" />
+                <GradientStop Color="LightGray" Offset="0.750" />
+                <GradientStop Color="DarkGray" Offset="0.90" />
                 <GradientStop Color="Black" Offset="1" />
             </LinearGradientBrush>
         </StackPanel.Background>
 
-
-
-        <Button Height="100" Width="100" Name="Class" Command="{Binding AddClassCommand}" Margin="5">
+        <Button Content="Button" Height="80" Width="80" Name="Class" Command="{Binding AddClassCommand}" Margin="5">
             <!--<Shapes:ClassShape/>-->
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="/ClassDiagram;component/View/Images/Class.png"/>
+                    <Image Source="/ClassDiagram;component/View/Images/ClassShape.png"/>
                 </ControlTemplate>
             </Button.Template>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
-        <Button Height="100" Width="100" Name="Connect" Command="{Binding AddLineCommand}" Margin="5">
+        <Button Height="80" Width="80" Name="Connect" Command="{Binding AddLineCommand}" Margin="5">
             <!--<Shapes:Line/>-->
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="/ClassDiagram;component/View/Images/Connect.png"/>
+                    <Image Source="/ClassDiagram;component/View/Images/Line.png"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>
 
-        <Button Height="100" Width="100" Name="Comment" Command="{Binding addComment}" Margin="5">
+        <Button Height="80" Width="80" Name="Comment" Command="{Binding addComment}" Margin="5">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/ClassDiagram;component/View/Images/Comment.png"/>
@@ -48,13 +55,34 @@
             </Button.Template>
         </Button>
 
-        <Button Height="100" Width="100" Name="Delete" Command="{Binding DeleteCommand}" Margin="5">
+        <Button Height="80" Width="80" Name="Delete" Command="{Binding DeleteCommand}" Margin="5">
             <Button.Template>
                 <ControlTemplate>
                     <Image Source="/ClassDiagram;component/View/Images/Delete.png"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>
-
+<!--
+        <Button Content="Button" Width="80" Height="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="5">
+            
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="/ClassDiagram;component/View/Images/ClassShape.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+-->
     </StackPanel>
 </UserControl>

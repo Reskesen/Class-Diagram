@@ -17,8 +17,6 @@ namespace ClassDiagram.View_Model
 
         public ICommand RemoveCommand { get; }
 
-        private static int counter = 0;
-
         public int Number { get { return Shape.Number; } set { Shape.Number = value; RaisePropertyChanged(); } }
 
         private double x = 100;
