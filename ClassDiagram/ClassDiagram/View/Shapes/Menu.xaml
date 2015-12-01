@@ -8,12 +8,11 @@
 
     <Menu>
         <MenuItem Header="File">
-            <MenuItem Header="New" Command="New"></MenuItem>
-            <MenuItem Header="Open" Command="Open"></MenuItem>
-            <MenuItem Header="Save" Command="Save"></MenuItem>
-            <MenuItem Header="Save As" Command="SaveAs"></MenuItem>
+            <MenuItem Header="New" Command="{Binding NewDiagramCommand}"></MenuItem>
+            <MenuItem Header="Open" Command="{Binding OpenDiagramCommand}"></MenuItem>
+            <MenuItem Header="Save" Command="{Binding SaveDiagramCommand}"></MenuItem>
             <Separator></Separator>
-            <MenuItem Header="Close" Command="Close"></MenuItem>
+            <MenuItem Header="Close" Command="{Binding ExitCommand}"></MenuItem>
         </MenuItem>
 
         <MenuItem Header="Edit">

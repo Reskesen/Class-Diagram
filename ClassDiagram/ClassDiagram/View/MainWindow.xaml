@@ -24,6 +24,12 @@
         Gesture="CTRL+SHIFT+L" />
         <KeyBinding Command="{Binding DeleteCommand}"
         Gesture="CTRL+D"/>
+        <KeyBinding Command="{Binding SaveDiagramCommand}"
+        Gesture="CTRL+S"/>
+        <KeyBinding Command="{Binding OpenDiagramCommand}"
+        Gesture="CTRL+O"/>
+        <KeyBinding Command="{Binding NewDiagramCommand}"
+        Gesture="CTRL+N"/>            
     </Window.InputBindings>
 
     <DockPanel>

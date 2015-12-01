@@ -12,10 +12,12 @@ namespace ClassDiagram.View_Model
         public Line Line { get; set; }
 
         public ShapeViewModel from;
-        public ShapeViewModel From { get { return from; } set { from = value; RaisePropertyChanged(); } }
+        public ShapeViewModel From { get { return from; } set { from = value; Line.FromNumber = value?.Number ?? 0; RaisePropertyChanged(); } }
 
         public ShapeViewModel to;
-        public ShapeViewModel To { get { return to; } set { to = value; RaisePropertyChanged(); } }
+        public ShapeViewModel To { get { return to; } set { to = value; Line.ToNumber = value?.Number ?? 0; RaisePropertyChanged(); } }
+
+        public string Label { get { return Line.Label; } set { Line.Label = value; RaisePropertyChanged(); } }
 
         public LineViewModel(Line _line) : base()
         {

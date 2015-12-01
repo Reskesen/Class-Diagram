@@ -19,13 +19,13 @@ namespace ClassDiagram.View_Model
 
         public int Number { get { return Shape.Number; } set { Shape.Number = value; RaisePropertyChanged(); } }
 
-        private double x = 100;
+        //private double x = 100;
 
-        public double X { get { return x; } set { x = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterX); } }
+        public double X { get { return Shape.X; } set { Shape.X = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterX); } }
 
-        private double y = 100;
+        //private double y = 100;
 
-        public double Y { get { return y; } set { y = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterY); } }
+        public double Y { get { return Shape.Y; } set { Shape.Y = value; RaisePropertyChanged(); RaisePropertyChanged(() => CanvasCenterY); } }
 
         private double width = 200;
 
