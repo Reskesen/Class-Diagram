@@ -15,7 +15,7 @@
             <Button Grid.Column ="3" Height="30" Width="50" Name="Save" Content="Save" Margin="1" Background="Azure" Command="{Binding Save}"/>
             <Button Grid.Column ="4" Height="30" Width="50" Name="Undo" Content="Undo" Margin="1"  Background="Red" Command="{Binding UndoCommand}"/>
             <Button Grid.Column ="5" Height="30" Width="50" Name="Redo" Content="Redo" Margin="1"  Background="Green" Command="{Binding RedoCommand}"/>
-            <Button Grid.Column ="6" Height="30" Width="50" Name="Copy" Content="Copy" Margin="1"  Background="Orange" Command="{Binding Undo}"/>
+            <Button Grid.Column ="6" Height="30" Width="50" Name="Copy" Content="Copy" Margin="1"  Background="Orange" Command="{Binding Copy}"/>
                                                                                                                     <!--Command="ApplicationCommands.Copy"-->
             <Button Grid.Column ="7" Height="30" Width="50" Name="Paste" Content="Paste" Margin="1" Background="OrangeRed" Command="{Binding Paste}"/>
                                                                                                                         <!--Command="ApplicationCommands.Paste"-->

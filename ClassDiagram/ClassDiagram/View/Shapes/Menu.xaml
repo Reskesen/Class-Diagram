@@ -8,21 +8,20 @@
 
     <Menu>
         <MenuItem Header="File">
-            <MenuItem Command="New"></MenuItem>
-            <MenuItem Command="Open"></MenuItem>
-            <MenuItem Command="Save"></MenuItem>
-            <MenuItem Command="SaveAs"></MenuItem>
+            <MenuItem Header="New" Command="New"></MenuItem>
+            <MenuItem Header="Open" Command="Open"></MenuItem>
+            <MenuItem Header="Save" Command="Save"></MenuItem>
+            <MenuItem Header="Save As" Command="SaveAs"></MenuItem>
             <Separator></Separator>
-            <MenuItem Command="Close"></MenuItem>
+            <MenuItem Header="Close" Command="Close"></MenuItem>
         </MenuItem>
 
         <MenuItem Header="Edit">
-            <MenuItem Command="Undo"></MenuItem>
-            <MenuItem Command="Redo"></MenuItem>
-            <MenuItem Command="Copy"></MenuItem>
-            <MenuItem Command="Paste"></MenuItem>
+            <MenuItem Header="Undo" Command="{Binding UndoCommand}"></MenuItem>
+            <MenuItem Header="Redo" Command="{Binding RedoCommand}"></MenuItem>
+            <MenuItem Header="Copy" Command="Copy"></MenuItem>
+            <MenuItem Header="Paste" Command="Paste"></MenuItem>
         </MenuItem>
     </Menu>
 
-
-</UserControl>
+</UserControl>  <!-- Why is this a usercontrol?! -->
